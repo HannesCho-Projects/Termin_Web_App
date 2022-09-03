@@ -1,15 +1,26 @@
 from django.db import models
+from django_countries.fields import CountryField
+from users.models import User
 
 
 class House(models.Model):
 
-    """Model Definition for Houses"""
+    """House Model Definition"""
 
     name = models.CharField(max_length=140)
-    price_per_night = models.PositiveIntegerField()
     description = models.TextField()
+    country = CountryField()
+    city = models.CharField(max_length=80)
+    price = models.IntegerField()
     address = models.CharField(max_length=140)
-    pets_allowed = models.BooleanField(default=True)
+    guests = models.IntegerField()
+    beds = models.IntegerField()
+    bedrooms = models.IntegerField()
+    baths = models.IntegerField()
+    check_in = models.TimeField()
+    check_out = models.TimeField()
+    instant_book = models.BooleanField(default=False)
+    host = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

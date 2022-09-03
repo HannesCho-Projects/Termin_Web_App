@@ -35,6 +35,8 @@ CUSTOM_APPS = [
     "users.apps.UsersConfig",
 ]
 
+THIRD_PARTY_APPS = ["django_countries"]
+
 SYSTEM_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
