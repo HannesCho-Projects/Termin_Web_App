@@ -24,7 +24,7 @@ class Reservation(core_models.TimeStampedModel):
     guest = models.ForeignKey(
         "users.User", related_name="reservations", on_delete=models.CASCADE
     )
-    room = models.ForeignKey(
+    house = models.ForeignKey(
         "houses.House", related_name="reservations", on_delete=models.CASCADE
     )
 
