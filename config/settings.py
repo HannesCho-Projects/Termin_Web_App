@@ -33,6 +33,10 @@ ALLOWED_HOSTS = []
 CUSTOM_APPS = [
     "houses.apps.HousesConfig",
     "users.apps.UsersConfig",
+    "conversations.apps.ConversationsConfig",
+    "lists.apps.ListsConfig",
+    "reservations.apps.ReservationsConfig",
+    "reviews.apps.ReviewsConfig",
 ]
 
 THIRD_PARTY_APPS = ["django_countries"]
@@ -46,7 +50,7 @@ SYSTEM_APPS = [
     "django.contrib.staticfiles",
 ]
 
-INSTALLED_APPS = SYSTEM_APPS + CUSTOM_APPS
+INSTALLED_APPS = SYSTEM_APPS + CUSTOM_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

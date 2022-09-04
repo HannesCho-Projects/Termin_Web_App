@@ -7,7 +7,7 @@ class Conversation(core_models.TimeStampedModel):
     """Conversation Model Definition"""
 
     participants = models.ManyToManyField(
-        "user.User", related_name="conversation", blank=True
+        "users.User", related_name="conversation", blank=True
     )
 
     def __str__(self):
@@ -20,10 +20,10 @@ class Message(core_models.TimeStampedModel):
 
     message = models.TextField()
     user = models.ForeignKey(
-        "user.User", related_name="messages", on_delete=models.CASCADE
+        "users.User", related_name="messages", on_delete=models.CASCADE
     )
     conversation = models.ForeignKey(
-        "Converation", related_name="messages", on_delete=models.CASCADE
+        "Conversation", related_name="messages", on_delete=models.CASCADE
     )
 
     def __str__(self):
