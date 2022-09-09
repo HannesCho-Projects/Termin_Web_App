@@ -4,4 +4,7 @@ from .models import House
 
 @admin.register(House)
 class HouseAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("name", "used_by")
+
+    def used_by(self, obj):
+        return obj.house.count()
