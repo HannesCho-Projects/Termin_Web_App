@@ -19,7 +19,7 @@ class AbstractItem(core_models.TimeStampedModel):
 
 class HouseType(AbstractItem):
 
-    """RoomType Model Definition"""
+    """HouseType Model Definition"""
 
     class Meta:
         verbose_name = "Houes Type"
@@ -57,7 +57,7 @@ class Photo(core_models.TimeStampedModel):
 
     caption = models.CharField(max_length=80)
     file = models.ImageField(upload_to="house_photos")
-    room = models.ForeignKey("House", related_name="photos", on_delete=models.CASCADE)
+    house = models.ForeignKey("House", related_name="photos", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.caption
@@ -95,7 +95,10 @@ class House(models.Model):
 
     def total_rating(self):
         all_reviews = self.reviews.all()
-        all_ratings = 0
-        for review in all_reviews:
-            all_ratings += review.rating_average()
-        return all_ratings / len(all_reviews)
+        if len(all_reviews) != 0:
+            all_ratings = 0
+            for review in all_reviews:
+                all_ratings += review.rating_average()
+            return all_ratings / len(all_reviews)
+        else:
+            return 0

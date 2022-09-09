@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import House, Photo
+from . import models
 
 
+@admin.register(models.HouseType, models.Facility, models.Amenity, models.HouseRule)
 class ItemAdmin(admin.ModelAdmin):
 
     """Item Admin Definition"""
@@ -12,7 +13,7 @@ class ItemAdmin(admin.ModelAdmin):
         return obj.houses.count()
 
 
-@admin.register(House)
+@admin.register(models.House)
 class HouseAdmin(admin.ModelAdmin):
 
     """House Admin Definition"""
@@ -73,7 +74,7 @@ class HouseAdmin(admin.ModelAdmin):
         return obj.photos.count()
 
 
-@admin.register(Photo)
+@admin.register(models.Photo)
 class PhotoAdmin(admin.ModelAdmin):
 
     """ """
