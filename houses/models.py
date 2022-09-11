@@ -93,6 +93,10 @@ class House(models.Model):
     def __str__(self):
         return self.name
 
+    def save(self, *args, **kwargs):
+        self.city = str.capitalize(self.city)
+        super().save(*args, **kwargs)  # Call the "real" save() method.
+
     def total_rating(self):
         all_reviews = self.reviews.all()
         if len(all_reviews) != 0:
