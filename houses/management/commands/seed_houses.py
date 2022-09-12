@@ -40,7 +40,7 @@ class Command(BaseCommand):
         facilities = house_models.Facility.objects.all()
         rules = house_models.HouseRule.objects.all()
         for pk in created_clean:
-            house = house_models.Room.objects.get(pk=pk)
+            house = house_models.House.objects.get(pk=pk)
             for i in range(1, random.randint(3, 5)):
                 house_models.Photo.objects.create(
                     caption=seeder.faker.sentence(),
