@@ -1,9 +1,9 @@
 from http.client import HTTPResponse
 from datetime import datetime
 from django.shortcuts import render
+from . import models
 
 
 def all_houses(request):
-    now = datetime.now()
-    hungry = True
-    return render(request, "all_houses.html", context={"now": now, "hungry": hungry})
+    all_houses = models.House.objects.all()
+    return render(request, "home.html", context={"houses": all_houses})
