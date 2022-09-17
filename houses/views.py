@@ -22,8 +22,12 @@ def all_houses(request):
     #         "page_range": range(1, page_count),
     #     },
     # )
-    page = request.GET.get("page")
+    # page = request.GET.get("page")
+    page = request.GET.get("page", 1)
     house_list = models.House.objects.all()
-    paginator = Paginator(house_list, 10)
-    houses = paginator.get_page(page)
-    return render(request, "home.html", {"houses": houses})
+    # paginator = Paginator(house_list, 10)
+    # houses = paginator.get_page(page)
+    # return render(request, "home.html", {"houses": houses})
+    paginator = Paginator(house_list, 10, orphans=5)
+    houses = paginator.page(int(page))
+    return render(request, "home.html", {"page": houses})
