@@ -6,21 +6,31 @@
     
 {% block content %} 
 
-    {% for house in houses %}
+    {% comment %} {% for house in houses %}{% endcomment %}
+    {% for house in houses.object_list %}
     <h1>{{house.name}} / ${{house.price}}</h1>
     {% endfor %}
 
     <h5>
-        {% if page is not 1 %}
-            <a href="?page={{page|add:-1}}">Previous</a>
-        {% endif %}
-    
-        Page {{page}} of {{page_count}}
-    
-        {% if not page == page_count  %}
-            <a href="?page={{page|add:1}}">Next</a>
-        {% endif %}
-    </h5>
-        
+    {% comment %} {% if page is not 1 %}
+        <a href="?page={{page|add:-1}}">Previous</a> {% endcomment %}
+    {% if houses.has_previous %}
+        <a href="?page={{houses.number|add:-1}}">Previous</a>
+    {% endif %}
 
+    {% comment %} Page {{page}} of {{page_count}} {% endcomment %}
+    Page {{houses.number}} of {{houses.paginator.num_pages}}
+
+    {% comment %} {% if not page == page_count  %}
+        <a href="?page={{page|add:1}}">Next</a> {% endcomment %}
+    {% if houses.has_next %}
+        <a href="?page={{houses.number|add:1}}">Next</a>
+    {% endif %}
+
+    {% comment %} {% for page in page_range %}
+        <a href="?page={{page}}">{{page}}</a>
+    {% endfor %} {% endcomment %}
+
+    </h5>
+    
 {% endblock content %}
