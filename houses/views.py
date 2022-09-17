@@ -1,7 +1,10 @@
-from math import ceil
-from django.core.paginator import Paginator
-from django.shortcuts import render
+# from math import ceil
+# from django.core.paginator import Paginator
+# from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.core.paginator import Paginator, EmptyPage
 from . import models
+import houses
 
 
 def all_houses(request):
@@ -29,5 +32,10 @@ def all_houses(request):
     # houses = paginator.get_page(page)
     # return render(request, "home.html", {"houses": houses})
     paginator = Paginator(house_list, 10, orphans=5)
-    houses = paginator.page(int(page))
-    return render(request, "home.html", {"page": houses})
+    # houses = paginator.page(int(page))
+    # return render(request, "home.html", {"page": houses})
+    try:
+        houses = paginator.page(int(page))
+        return render(request, "home.html", {"page": houses})
+    except EmptyPage:
+        return redirect("/")
