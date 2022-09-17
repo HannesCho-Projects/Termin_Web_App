@@ -63,7 +63,7 @@ class Photo(core_models.TimeStampedModel):
         return self.caption
 
 
-class House(models.Model):
+class House(core_models.TimeStampedModel):
 
     """House Model Definition"""
 
