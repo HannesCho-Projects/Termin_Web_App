@@ -7,7 +7,9 @@
 
 {% block content %}
 
-    {% for house in object_list  %}
+    <p>{{now}}</p>
+
+    {% for house in houses  %}
         <h1>{{house.name}} / ${{house.price}}</h1>
     {% endfor %}
 
