@@ -42,6 +42,7 @@
 
 from django.utils import timezone
 from django.views.generic import ListView
+from django.shortcuts import render
 from . import models
 
 
@@ -60,3 +61,8 @@ class HomeView(ListView):
         now = timezone.now()
         context["now"] = now
         return context
+
+
+def house_detail(request, pk):
+    print(pk)
+    return render(request, "houses/detail.html")

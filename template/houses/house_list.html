@@ -10,7 +10,11 @@
     <p>{{now}}</p>
 
     {% for house in houses  %}
-        <h1>{{house.name}} / ${{house.price}}</h1>
+    <h3>
+        <a href="{% url "houses:detail" house.pk %}">
+            {{house.name}} / ${{house.price}}
+        </a>
+    </h3>
     {% endfor %}
 
     <h5>
