@@ -6,5 +6,33 @@
 {% endblock page_name %}
 
 {% block content %}
-
+<div>
+    <h1>{{house.name}}</h1>
+    <h3>{{house.description}}</h3>
+</div>
+<div>
+    <h2>By: {{house.host.username}}
+    {% if house.host.superhost %}
+        (superhost)
+    {% endif %}
+    </h2>
+    <h3>Amenities</h3>
+    <ul>
+    {% for a in house.amenities.all  %}
+        <li>{{a}}</li>
+    {% endfor %}
+    </ul>
+    <h3>Facilities</h3>
+    <ul>
+    {% for a in house.facilities.all  %}
+        <li>{{a}}</li>
+    {% endfor %}
+    </ul>
+    <h3>House Rules</h3>
+    <ul>
+    {% for a in house.house_rules.all  %}
+        <li>{{a}}</li>
+    {% endfor %}
+    </ul>
+</div>
 {% endblock %}

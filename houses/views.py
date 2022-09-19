@@ -42,7 +42,8 @@
 
 from django.utils import timezone
 from django.views.generic import ListView
-from django.shortcuts import render
+from django.urls import reverse
+from django.shortcuts import render, redirect
 from . import models
 
 
@@ -64,5 +65,8 @@ class HomeView(ListView):
 
 
 def house_detail(request, pk):
-    print(pk)
-    return render(request, "houses/detail.html")
+    try:
+        house = models.House.objects.get(pk=pk)
+        return render(request, "houses/detail.html", {"house": house})
+    except models.House.DoesNotExist:
+        return redirect(reverse("core:home"))
