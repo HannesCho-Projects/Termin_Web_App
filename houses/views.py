@@ -41,9 +41,11 @@
 #         return redirect("/")
 
 from django.utils import timezone
-from django.views.generic import ListView
-from django.http import Http404
-from django.shortcuts import render
+
+# from django.views.generic import ListView
+# from django.http import Http404
+# from django.shortcuts import render
+from django.views.generic import ListView, DetailView
 from . import models
 
 
@@ -64,9 +66,16 @@ class HomeView(ListView):
         return context
 
 
-def house_detail(request, pk):
-    try:
-        house = models.House.objects.get(pk=pk)
-        return render(request, "houses/detail.html", {"house": house})
-    except models.House.DoesNotExist:
-        raise Http404()
+# def house_detail(request, pk):
+#     try:
+#         house = models.House.objects.get(pk=pk)
+#         return render(request, "houses/detail.html", {"house": house})
+#     except models.House.DoesNotExist:
+#         raise Http404()
+
+
+class HouseDetail(DetailView):
+
+    """HouseDetail Definition"""
+
+    model = models.House
