@@ -44,7 +44,7 @@ from django.utils import timezone
 
 # from django.views.generic import ListView
 # from django.http import Http404
-# from django.shortcuts import render
+from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from . import models
 
@@ -79,3 +79,9 @@ class HouseDetail(DetailView):
     """HouseDetail Definition"""
 
     model = models.House
+
+
+def search(request):
+    city = request.GET.get("city")
+    city = str.capitalize(city)
+    return render(request, "houses/search.html", {"city": city})
