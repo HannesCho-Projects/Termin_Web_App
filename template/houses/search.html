@@ -21,7 +21,8 @@
             <label for="country">Country</label>
             <select id="country" name="country" >
                 {% for country in countries  %}
-                    <option value="{{country.code}}">{{country.name}}</option>
+                    <option value="{{country.code}}" {% if country.code == s_country %}selected{% endif %}>
+                        {{country.name}}</option>
                 {% endfor %}
             </select>
         </div>
@@ -29,8 +30,10 @@
         <div>
             <label for="house_type">House Type</label>
             <select id="house_type" name="house_type" >
+                    <option value="0" {% if 0 == s_house_type %}selected{% endif %}>Any Type</option>
                 {% for house_type in house_types  %}
-                    <option value="{{house_type.pk}}">{{house_type.name}}</option>
+                    <option value="{{house_type.pk}}"{% if house_type.pk == s_house_type %}selected{% endif %}>
+                        {{house_type.name}}</option>
                 {% endfor %}
             </select>
         </div>

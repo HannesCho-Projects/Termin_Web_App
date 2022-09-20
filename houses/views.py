@@ -85,9 +85,23 @@ class HouseDetail(DetailView):
 def search(request):
     city = request.GET.get("city", "Anywhere")
     city = str.capitalize(city)
+    country = request.GET.get("country", "DE")
+    house_type = int(request.GET.get("house_type", 0))
     house_types = models.HouseType.objects.all()
+
+    form = {
+        "city": city,
+        "s_country": country,
+        "s_house_type": house_type,
+    }
+
+    choices = {
+        "countries": countries,
+        "house_types": house_types,
+    }
+
     return render(
         request,
         "houses/search.html",
-        {"city": city, "countries": countries, "house_types": house_types},
+        {**form, **choices},
     )
