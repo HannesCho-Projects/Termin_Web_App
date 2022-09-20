@@ -46,6 +46,7 @@ from django.utils import timezone
 # from django.http import Http404
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
+from django_countries import countries
 from . import models
 
 
@@ -82,6 +83,11 @@ class HouseDetail(DetailView):
 
 
 def search(request):
-    city = request.GET.get("city")
+    city = request.GET.get("city", "Anywhere")
     city = str.capitalize(city)
-    return render(request, "houses/search.html", {"city": city})
+    house_types = models.HouseType.objects.all()
+    return render(
+        request,
+        "houses/search.html",
+        {"city": city, "countries": countries, "house_types": house_types},
+    )
