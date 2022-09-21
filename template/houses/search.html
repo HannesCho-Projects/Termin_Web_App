@@ -12,7 +12,7 @@
     <h2>Search!</h2>
 
     <form method="get" action="{% url "houses:search" %}">
-        <div>
+        <!-- <div>
             <label for="city">City</label>
             <input value="{{city}}" id="city" name="city" placeholder="Search By City" />
         </div>
@@ -62,8 +62,8 @@
             <input type="checkbox" name="instant" id="instant" {% if instant  %}checked{% endif %} />
         </div>
         <div>
-            <label for="super_host">By Superhost Only?</label>
-            <input type="checkbox" name="super_host" id="super_host" {% if super_host %}checked{% endif %} />
+            <label for="superhost">By Superhost Only?</label>
+            <input type="checkbox" name="superhost" id="superhost" {% if superhost %}checked{% endif %} />
         </div>
         <div>
             <h3>Amenities</h3>
@@ -102,8 +102,15 @@
                     </li>
                 {% endfor %}
             </ul>
-        </div>
-        <button>Search</button>
+        </div> -->
+        {{form.as_p}}
+        <button>Search</button> 
     </form>
+
+    <h3>Results</h3>
+
+    {% for house in houses %}
+        <h3>{{house.name}}</h3>
+    {% endfor %}
 
 {% endblock content %}
