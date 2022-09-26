@@ -1,0 +1,30 @@
+{
+  "name": "termin_web_app",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "css": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HannesCho-Projects/Termin_Web_App.git"
+  },
+  "author": "HannesCho",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HannesCho-Projects/Termin_Web_App/issues"
+  },
+  "homepage": "https://github.com/HannesCho-Projects/Termin_Web_App#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.8.8",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-postcss": "^9.0.0",
+    "gulp-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
+    "postcss": "^8.4.14",
+    "sass": "^1.45.0",
+    "tailwindcss": "^2.2.19"
+  }
+}

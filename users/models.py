@@ -27,12 +27,12 @@ class User(AbstractUser):
 
     LOGIN_EMAIL = "email"
     LOGIN_GITHUB = "github"
-    LOGING_KAKAO = "kakao"
+    LOGING_KAKAO = "google"
 
     LOGIN_CHOICES = (
         (LOGIN_EMAIL, "Email"),
         (LOGIN_GITHUB, "Github"),
-        (LOGING_KAKAO, "Kakao"),
+        (LOGING_KAKAO, "Google"),
     )
 
     avatar = models.ImageField(upload_to="avatars", blank=True)

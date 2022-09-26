@@ -165,3 +165,6 @@ uploads/
 
 #prettier
 .prettierignore
+
+#node
+node_modules/
