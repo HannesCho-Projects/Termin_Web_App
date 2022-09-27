@@ -14,3 +14,5 @@ module.exports = {
   variants: {},
   plugins: [],
 };
+
+// After change sth run : npx tailwind build

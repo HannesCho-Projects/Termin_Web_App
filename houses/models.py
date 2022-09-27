@@ -110,3 +110,8 @@ class House(core_models.TimeStampedModel):
             return round(all_ratings / len(all_reviews), 2)
         else:
             return 0
+
+    def first_photo(self):
+        (photo,) = self.photos.all()[:1]
+        print(photo.file.url)
+        return photo.file.url
