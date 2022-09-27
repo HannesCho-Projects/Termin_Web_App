@@ -39,7 +39,7 @@ CUSTOM_APPS = [
     "reviews.apps.ReviewsConfig",
 ]
 
-THIRD_PARTY_APPS = ["django_countries", "django_seed"]
+THIRD_PARTY_APPS = ["django_countries", "django_seed", "fontawesomefree"]
 
 SYSTEM_APPS = [
     "django.contrib.admin",

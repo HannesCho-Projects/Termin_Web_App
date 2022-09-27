@@ -16,6 +16,7 @@ django-seed = "^0.3.1"
 pgsql = "^1.2"
 psycopg2-binary = "^2.9.3"
 requests = "^2.28.1"
+fontawesomefree = "^6.2.0"
 
 
 [build-system]
